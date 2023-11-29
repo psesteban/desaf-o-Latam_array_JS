@@ -183,11 +183,13 @@ if (document.querySelector("#all")) {
 }
 
 const functionInner = (array) => {
+  let row;
+  let alDom = '';
+
   for (let elemento of array.slice(0, maxObject)) {
     const numeroHabitaciones =
       elemento.habitaciones > 1 ? "Habitaciones" : "Habitación";
     const numeroBathroom = elemento.bathrooms > 1 ? "Baños" : "Baño";
-    let row;
     let featureOne;
     let featureTwo;
     if (array == propiedadesAlquiler) {
@@ -241,10 +243,14 @@ const functionInner = (array) => {
     </div>
     </div>
     </div>
-    `;
-    row.innerHTML += template;
-  }
+    `
+  alDom += template;
+}
+row.innerHTML += alDom;
 };
+
+
+
 
 if (rowPropiedadesAlquiler) {
   functionInner(propiedadesAlquiler);
